@@ -1,0 +1,28 @@
+{
+    "name": "api_rest",
+    "version": "1.0.0",
+    "description": "Este es el web api que se comunicara con mi aplicacion web para el proyecto de ingreso a la empresa imaginemos",
+    "main": "index.js",
+    "scripts": {
+        "start": "node server/server",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/HOMH9797/apirestnodeimaginamos.git"
+    },
+    "author": "HaroldMontejoHerrera",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/HOMH9797/apirestnodeimaginamos/issues"
+    },
+    "homepage": "https://github.com/HOMH9797/apirestnodeimaginamos#readme",
+    "dependencies": {
+        "bcrypt": "^3.0.5",
+        "body-parser": "^1.18.3",
+        "express": "^4.16.4",
+        "mongoose": "^5.4.21",
+        "mongoose-unique-validator": "^2.0.2",
+        "underscore": "^1.9.1"
+    }
+}
