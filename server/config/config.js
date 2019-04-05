@@ -10,7 +10,16 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 process.env.PORT = process.env.PORT || 3000;
 
 //==================================================
-// PUERTO BASE DE DATOS
+// SEED 
+//==================================================
+process.env.SEED = process.env.SEED || 'este-es-el-seed-desarrollo';
+//==================================================
+// TIEMPO CADUCIDAD
+//==================================================
+process.env.TIEMPO_CADUCIDAD = process.env.TIEMPO_CADUCIDAD || 60 * 60 * 24 * 30;
+
+//==================================================
+// CONEXION BASE DE DATOS
 //==================================================
 let urlDB;
 
