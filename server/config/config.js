@@ -16,7 +16,7 @@ process.env.SEED = process.env.SEED || 'este-es-el-seed-desarrollo';
 //==================================================
 // TIEMPO CADUCIDAD
 //==================================================
-process.env.TIEMPO_CADUCIDAD = process.env.TIEMPO_CADUCIDAD || 60 * 60 * 24 * 30;
+process.env.TIEMPO_CADUCIDAD = 60 * 60 * 24 * 30;
 
 //==================================================
 // CONEXION BASE DE DATOS
