@@ -34,7 +34,7 @@ app.get('/usuario', [verificaToken, verifica_ADMINROL], (req, res) => {
 });
 
 //Metodo POST permite hacer la insercion de nuevos usuarios en base de datos
-app.post('/usuario', verificaToken, function(req, res) {
+app.post('/usuario', function(req, res) {
     let body = req.body;
     let usuario = new Usuario({
         nombre: body.nombre,
