@@ -66,7 +66,7 @@ app.get('/pedidocliente', [verificaToken, verifica_CLIENTROL], (req, res) => {
         });
 });
 
-app.delete('/pedido/:id', (req, res) => {
+app.delete('/pedido/:id', verificaToken, (req, res) => {
     let id = req.params.id;
     Pedido.findById(id, (err, pedidoDB) => {
         if (err) { return res.status(500).json({ ok: false, err }); }
