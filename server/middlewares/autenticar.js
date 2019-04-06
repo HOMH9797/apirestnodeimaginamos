@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 
-// VERIFICAR TOKEN 
+// VERIFICAR LA VALIDEZ DEL TOKEN 
 
 let verificaToken = (req, res, next) => {
     let token = req.get('token');
@@ -19,7 +19,7 @@ let verificaToken = (req, res, next) => {
     });
 
 };
-
+// VALIDA QUE EL USUARIO SEA UN CONDUCTOR
 let verifica_ADMINROL = (req, res, next) => {
     let usuario = req.usuario;
 
@@ -34,6 +34,7 @@ let verifica_ADMINROL = (req, res, next) => {
 
 };
 
+// VALIDA QUE EL USUARIO SEA UN CLIENTE
 let verifica_CLIENTROL = (req, res, next) => {
     let usuario = req.usuario;
 
@@ -48,20 +49,7 @@ let verifica_CLIENTROL = (req, res, next) => {
 
 };
 
-let verifica_CLIENTADMINROL = (req, res, next) => {
-    let usuario = req.usuario;
-
-    if (usuario.role === 'CLIENT_ROLE' || usuario.role === 'ADMIN_ROLE') {
-        next();
-    } else {
-        return res.json({
-            ok: false,
-            err: { message: 'El usuario no puede realizar esta terea ya que no es Cliente o administrador' }
-        })
-    }
-
-};
-
+// VALIDA QUE USUARIO SEA UN CONDUCTOR
 let verifica_DRIVERROL = (req, res, next) => {
     let usuario = req.usuario;
 
@@ -80,5 +68,5 @@ module.exports = {
     verificaToken,
     verifica_ADMINROL,
     verifica_CLIENTROL,
-    verifica_CLIENTADMINROL
+    verifica_DRIVERROL
 }
