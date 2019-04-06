@@ -2,11 +2,11 @@ const express = require('express');
 const Usuario = require('../models/usuario');
 const bcrypt = require('bcrypt');
 const _ = require('underscore');
-const { verificaToken } = require('../middlewares/autenticar');
+const { verificaToken, verifica_ADMINROL } = require('../middlewares/autenticar');
 const app = express();
 
 //Metodo GET permite obtener la informacion conrespondiente a cada usuario del aplicativo con paginacion
-app.get('/usuario', verificaToken, (req, res) => {
+app.get('/usuario', [verificaToken, verifica_ADMINROL], (req, res) => {
     let desde = req.query.desde || 0;
     desde = Number(desde);
 
@@ -83,7 +83,7 @@ app.put('/usuario/:id', verificaToken, (req, res) => {
 });
 
 //Metodo DELETE realiza la inactivacion de los usuarios como "borrado" del sistema pormedio del ID
-app.delete('/usuario/:id', verificaToken, (req, res) => {
+app.delete('/usuario/:id', [verificaToken, verifica_ADMINROL], (req, res) => {
     let id = req.params.id;
 
     let cambiaEstado = {

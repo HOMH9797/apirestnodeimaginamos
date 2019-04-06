@@ -6,40 +6,18 @@ let rolesValidos = { values: ['ADMIN_ROLE', 'CLIENT_ROLE', 'DRIVER_ROLE'], messa
 let Schema = mongoose.Schema;
 
 let usuarioSchema = new Schema({
-    nombre: {
-        type: String,
-        required: [true, 'El nombre es necesario']
-    },
-    email: {
-        type: String,
-        unique: true,
-        required: [true, 'El email es necesario']
-    },
-    password: {
-        type: String,
-        required: [true, 'El password es necesario']
-    },
-    telefono: {
-        type: String,
-        required: [true, 'El telefono es necesario']
-    },
-    role: {
-        type: String,
-        default: 'CLIENT_ROLE',
-        enum: rolesValidos
-    },
-    estado: {
-        type: Boolean,
-        default: true
-    },
+    nombre: { type: String, required: [true, 'El nombre es necesario'] },
+    email: { type: String, unique: true, required: [true, 'El email es necesario'] },
+    password: { type: String, required: [true, 'El password es necesario'] },
+    telefono: { type: String, required: [true, 'El telefono es necesario'] },
+    role: { type: String, default: 'CLIENT_ROLE', enum: rolesValidos },
+    estado: { type: Boolean, default: true },
 });
 
 usuarioSchema.methods.toJSON = function() {
     let user = this;
     let userObject = user.toObject();
-
     delete userObject.password;
-
     return userObject;
 }
 
